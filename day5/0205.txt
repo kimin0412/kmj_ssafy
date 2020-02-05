@@ -1,0 +1,60 @@
+자바 == OOP(Object Oriented Programming)
+<객체지향의 특징> 
+1. 캡슐화 : 필드와 메소드를 묶어주는 것
+   - 정보은닉
+   - 모듈성
+
+2. 상속  ★
+   - 부모가 갖는 자원(필드,메소드)을 아낌없이 물려주는 것.  
+   - 관련키워드 extends
+     예)
+       class My extends 부모클래스명{
+               --------
+                is  a    ==> 자식은 부모다!! (자식클래스는 부모클래스로 형변환이 가능!!) 
+       }
+       
+     질문)
+       class Parent extends Object{
+       
+       }
+       class Child extends Parent{
+       
+       }
+     
+       int su = 300;
+       int su;
+           su = 300;
+       Parent p;
+              p = new Child();     
+     
+       Parent p = new Child();  (O)
+       
+       Child  c = new Parent(); (X)
+   
+   - 단일상속이 기본원칙
+   
+https://docs.oracle.com/javase/8/docs/api/   
+
+   API문서(Application Programming Interface)
+     ==> 
+
+     java.lang.Object            부모클래스, 상위클래스, super
+         |
+         +--  java.lang.String   자식클래스, 하위클래스, sub
+
+   ※ Object클래스 ---> 최상위클래스!!
+                 ---> 자바의 모든 클래스의 부모클래스
+		 ---> 사용자가 정의하는 클래스에도 자동 추가 extends Object
+   
+   
+3. 다형성 
+  - 메소드 오버라이딩(MethodOverriding) ★★
+      :상속에서 나온 개념
+      :부모가 갖는 메소드를 자식클래스에서 재정의
+
+  - 메소드 오버로딩(MethodOverloading)
+      :한 클래스내에 동일한 메소드를 여러개 구현
+       (단, 인자의 갯수가 다르거나 자료형이 달라야 한다)   
+       
+       
+       
