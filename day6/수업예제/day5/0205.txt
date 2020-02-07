@@ -1,0 +1,130 @@
+자바 == OOP(Object Oriented Programming)
+<객체지향의 특징> 
+1. 캡슐화 : 필드와 메소드를 묶어주는 것
+   - 정보은닉
+   - 모듈성
+
+2. 상속  ★
+   - 부모가 갖는 자원(필드,메소드)을 아낌없이 물려주는 것.  
+   - 관련키워드 extends
+     예)
+       class My extends 부모클래스명{
+               --------
+                is  a    ==> 자식은 부모다!! (자식클래스는 부모클래스로 형변환이 가능!!) 
+       }
+       
+     질문)
+       class Parent extends Object{
+       
+       }
+       class Child extends Parent{
+       
+       }
+     
+       int su = 300;
+       int su;
+           su = 300;
+       Parent p;
+              p = new Child();     
+     
+       Parent p = new Child();  (O)
+       
+       Child  c = new Parent(); (X)
+   
+   - 단일상속이 기본원칙
+   
+https://docs.oracle.com/javase/8/docs/api/   
+
+   API문서(Application Programming Interface)
+     ==> 
+
+     java.lang.Object            부모클래스, 상위클래스, super
+         |
+         +--  java.lang.String   자식클래스, 하위클래스, sub
+
+   ※ Object클래스 ---> 최상위클래스!!
+                 ---> 자바의 모든 클래스의 부모클래스
+		 ---> 사용자가 정의하는 클래스에도 자동 추가 extends Object
+   
+   
+3. 다형성 
+  - 메소드 오버라이딩(MethodOverriding) ★★
+      :상속에서 나온 개념
+      :부모가 갖는 메소드를 자식클래스에서 재정의
+
+  - 메소드 오버로딩(MethodOverloading)
+      :한 클래스내에 동일한 메소드를 여러개 구현
+       (단, 인자의 갯수가 다르거나 자료형이 달라야 한다)   
+       
+  class A{
+     int x=100;
+     int x=300;  (X) 중복된 변수명에 다시 변수선언 할 수 없음!!
+     
+     void hello(){
+      System.out.println("안녕~!!");
+     }
+     void hello(){}  (X) 중복된 메소드명을 다시 정의할 수 없음!!
+     
+     void hello(String name){    ===> (O)
+      System.out.println("안녕,"+name+"~!!");
+     }
+     
+     void hello(int age){    ===> (O)
+      System.out.println("안녕,"+age+"~!!");
+     }
+  }       
+       
+=====================================================================
+<생성자> Constructor
+ - 새로운 객체를 생성하기 위해서 초기화해주는 메소드.
+
+1. 생성자의 이름은 반드시 클래스명과 일치(대소문자 일치)
+2. 리턴자료형을 명시하지 않는다. (void조차 X)
+------ 1,2번 : 일반 메소드와의 차이점-------------
+3. 객체생성시 자동으로 호출.
+4. 클래스내에 생성자가 하나도 없다면
+   자바컴파일러가 컴파일시 자동으로 (기본생성자를) 추가.
+
+※ 주의) 만약, 클래스내에 한개 이상의 생성자가 정의 되어 있다면
+             컴파일러는 소드코드에 관여하지 않는다!!
+             
+=============================================================
+
+A  a  = new A(); //A클래스 객체생성 --> A클래스의 멤버들에 대한 메모리 할당
+                 //'new'는 메모리할당,   A();는 생성자호출
+                 //a는 메모리 주소에 대해 프로그램에서 사용할 수 있는 참조reference 변수!!
+A  a2;
+   a2=a;
+
+<this> 자기참조 연산자
+  ===> 현재클래스를 가르키는 레퍼런스 변수(참조변수)!!
+  ===> 보통은 생략함
+
+1. 메소드 내에서 사용.
+2. 객체 생성자내에서 다른 생성자를 호출시 사용.
+3. 매개변수(지역변수)와 멤버변수(필드)를 구분하기 위해
+   멤버변수 앞에 this.을 붙여 사용.
+   
+형식)
+    this.필드명
+    this.메소드명();
+    this( ); //생성자 호출
+참고)    
+    super.필드명
+    super.메소드명();
+    super( ); //부모클래스 생성자 호출             
+             
+                    
+       
+       
+       
+       
+GIT추가 하세요!!  
+https://lab.ssafy.com/03/seoul10/ssafy3_seoul_10_java.git
+
+
+
+
+
+       
+       
