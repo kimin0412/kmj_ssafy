@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class Solution_1220_Magnetic {
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		System.setIn(new FileInputStream("res/1220_magnetic.txt"));
+		System.setIn(new FileInputStream("res/swea/d3/1220_magnetic.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 

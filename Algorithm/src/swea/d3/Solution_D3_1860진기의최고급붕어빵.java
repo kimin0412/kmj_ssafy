@@ -1,4 +1,4 @@
-package D3;
+package swea.d3;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

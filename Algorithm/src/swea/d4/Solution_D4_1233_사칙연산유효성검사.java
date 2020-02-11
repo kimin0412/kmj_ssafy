@@ -12,7 +12,7 @@ public class Solution_D4_1233_사칙연산유효성검사 {
 	static String[] arrTree;
 
 	public static void main(String[] args) throws IOException {
-		System.setIn(new FileInputStream("res/1233_사칙연산유효성검사.txt"));
+		System.setIn(new FileInputStream("res/swea/d4/1233_사칙연산유효성검사.txt"));
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		boolean flag = true;

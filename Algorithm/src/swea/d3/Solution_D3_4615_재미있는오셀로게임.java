@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 public class Solution_D3_4615_재미있는오셀로게임 {
 
 	public static void main(String[] args) throws IOException {
-		System.setIn(new FileInputStream("res/4615_재밌는오셀로게임.txt"));
+		System.setIn(new FileInputStream("res/swea/d3/4615_재밌는오셀로게임.txt"));
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		int T = Integer.parseInt(in.readLine());

@@ -1,8 +1,8 @@
-package D2;
+package swea.d2;
 
 import java.util.Scanner;
 
-public class D2_1948 {
+public class Solution_D2_1948_날짜계산기 {
 	public static void main(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		int T;
