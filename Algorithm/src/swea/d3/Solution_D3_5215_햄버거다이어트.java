@@ -19,6 +19,7 @@ public class Solution_D3_5215_햄버거다이어트 {
 		StringTokenizer st;
 		int T = Integer.parseInt(br.readLine().trim());
 		for (int tc = 0; tc < T; tc++) {
+			max = 0;
 			st = new StringTokenizer(br.readLine().trim(), " ");
 			N = Integer.parseInt(st.nextToken());
 			L = Integer.parseInt(st.nextToken());
@@ -30,7 +31,7 @@ public class Solution_D3_5215_햄버거다이어트 {
 				arr[j][1] = Integer.parseInt(st.nextToken());
 			}
 			dfs(0, 0, 0);
-			System.out.println(max);
+			System.out.println("#" + (tc+1) + " " +max);
 		}
 	}
 
@@ -38,7 +39,7 @@ public class Solution_D3_5215_햄버거다이어트 {
 		if (c > L) {
 			return;
 		}
-		if (n == 5) {
+		if (n == N) {
 			if (max < t) {
 				max = t;
 			}			

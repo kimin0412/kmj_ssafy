@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//모든 곳을 다 가보기 때문에 시간 초과
-public class Main_1661_미로탈출로봇_dfs {
+public class Main_1661_미로탈출로봇_bfs {
 	static int[][] dir = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 	static int[][] map;
 	static int rowN, colN;				//맵의 너비 좌표 높이

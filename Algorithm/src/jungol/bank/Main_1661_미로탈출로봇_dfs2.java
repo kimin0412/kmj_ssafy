@@ -6,8 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//모든 곳을 다 가보기 때문에 시간 초과
-public class Main_1661_미로탈출로봇_dfs {
+public class Main_1661_미로탈출로봇_dfs2 {
 	static int[][] dir = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 	static int[][] map;
 	static int rowN, colN;				//맵의 너비 좌표 높이
@@ -19,7 +18,7 @@ public class Main_1661_미로탈출로봇_dfs {
 	static int no = 1;
 	static int r, c, nr, nc, count = 0;
 	static int[] cur;
-	
+	//간단한 백트래킹 -> 그래도 시간초과
 	public static void main(String[] args) throws IOException {
 		System.setIn(new FileInputStream("res/jungol/1661_미로탈출로봇.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -54,6 +53,11 @@ public class Main_1661_미로탈출로봇_dfs {
 			//도착 지점까지 온 상태
 			min = Math.min(min, dist);
 			return;
+		}
+		
+		if(dist >= min) {
+			return;
+			
 		}
 		
 		for (int i = 0; i < 4; i++) {
