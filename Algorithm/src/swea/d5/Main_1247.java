@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class Main_1247 {
 	private static int T, N;
-	static int[] crc, hrc;
+	static int[] Crc, Hrc;
 	private static int[][] points = null;
 	static int[] visit = new int[N];
 	static int minResult = Integer.MAX_VALUE;
@@ -18,7 +18,7 @@ public class Main_1247 {
 		 StringTokenizer st;
 		 T = Integer.parseInt(br.readLine()); 
 		 for (int testCase = 1; testCase <= T; testCase++) {
-//			N = sc.nextInt();
+//			N = Integer.parseInt(br.readLine());
 //			crc[0] = 
 //			cc = sc.nextInt();
 //			hr = sc.nextInt();
