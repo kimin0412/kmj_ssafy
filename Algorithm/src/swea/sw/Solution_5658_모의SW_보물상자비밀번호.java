@@ -1,5 +1,5 @@
 package swea.sw;
-
+///////보류////////
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -11,8 +11,31 @@ import java.util.StringTokenizer;
 public class Solution_5658_모의SW_보물상자비밀번호 {
 	static int N, K;
 	static LinkedList<Character> hexa;
+	static int n;
 //	static LinkedList<Integer> hexa;
-
+	
+	public static class Words{
+		String word;
+		int order;
+		public Words(String word, int order) {
+			super();
+			this.word = word;
+			this.order = order;
+		}
+		public String getWord() {
+			return word;
+		}
+		public void setWord(String word) {
+			this.word = word;
+		}
+		public int getOrder() {
+			return order;
+		}
+		public void setOrder(int order) {
+			this.order = order;
+		}
+		
+	}
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/swea/sw/5658_모의SW_보물상자비밀번호.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -39,23 +62,19 @@ public class Solution_5658_모의SW_보물상자비밀번호 {
 
 			System.out.println(hexa.toString());
 
-			LinkedList<String> arr = new LinkedList<>();
-//			int[][] arr = new int[12][nn];
-//			int idx = 0;
+//			Words[] arrr = new Words[12];
+			String[] arr = new String[12];
+			int idx = 0;
 			for (int i = 0; i < 3; i++) {
 				String tmp = "";
-//				int[] tmp = new int[nn];
 				for (int j = 0; j < N; j++) {
 					tmp += hexa.get(j);
 					System.out.println(j + " " + tmp);
-//					tmp[j % nn] = hexa.get(j);
-//					arr[idx][(j + 1) % nn] = hexa.get(j);
-//					hap += hexa.get(j) * Math.pow(16, nn - (j+1)%nn);
-//					System.out.println(hap);
 					if (j % nn == nn - 1) {
 						boolean flag = true;
-						for (int k = 0; k < arr.size(); k++) {
-							if (arr.get(k).equals(tmp)) {
+						for (int k = 0; k < idx; k++) {
+//							if (arrr[k].getWord().equals(tmp)) {
+							if (arr[k].equals(tmp)) {
 								flag = false;
 								tmp = "";
 								break;
@@ -63,35 +82,67 @@ public class Solution_5658_모의SW_보물상자비밀번호 {
 						}
 
 						if (flag == true) {
-							arr.offer(tmp);
-//							idx++;
+//							arrr[idx].setWord(tmp);
+//							arrr[idx].setOrder(j % nn);
+							arr[idx] = tmp;
+							idx++;
 							tmp = "";
-//							hap = 0;
 						}
 					}
 				}
 				char c = hexa.pollLast();
 				hexa.offerFirst(c);
 
-//				char c = hexa.pollLast();
-//				hexa.offerFirst(c);
 
 			}
+			
+//			Arrays.sort(arrr, new Comparator<Words>() {
+//
+//				@Override
+//				public int compare(Words o1, Words o2) {
+//					for
+//					if (o1[n] < o2[n])
+//						return -1;
+//					else if (o1[n] == o2[n])
+//						return 0;
+//					else
+//						return 1;
+//				}
+//
+//			});
 
-			sort(arr, 0);
+			Arrays.sort(arr, new Comparator<String>() {
+
+				@Override
+				public int compare(String o1, String o2) {
+					for (int i = 0; i < nn; i++) {
+						if (o1.charAt(i) < o2.charAt(i))
+							return -1;
+						else if (o1.charAt(i) == o2.charAt(i))
+							return 0;
+						else
+							return 1;
+					}
+					return 0;
+
+				}
+
+			});
+			
+			
 			for (String s : arr) {
 				System.out.println(s);
 			}
-
+			
 //			System.out.println(Arrays.toString(arr));
-			System.out.println("#" + tc + " ");
+//			for (int i = 0; i < idx; i++) {
+//				for (int j = 0; j < nn; j++) {
+//					System.out.println(arr[i][j]);
+//					
+//				}
+//			}
+			System.out.println("#" + tc + " "  + arr[K]);
 
 		}
 	}
-
-	private static void sort(LinkedList<String> arr, int cur) {
-//		if()
-		
-	}
-
 }

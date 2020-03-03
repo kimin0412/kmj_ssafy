@@ -15,7 +15,7 @@ public class Main_1247_D5_최적경로 {
 	static int minResult = Integer.MAX_VALUE;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		System.setIn(new FileInputStream("res/d5/1247_최적경로.txt"));
+		System.setIn(new FileInputStream("res/swea/d5/1247_최적경로.txt"));
 		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		 StringTokenizer st;
 		 T = Integer.parseInt(br.readLine()); 
