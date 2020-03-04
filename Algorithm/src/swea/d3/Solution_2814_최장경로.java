@@ -24,6 +24,7 @@ public class Solution_2814_최장경로 {
 			M = Integer.parseInt(st.nextToken()); // 간선 정보의 개수
 			map = new int[N][N];
 			visit = new boolean[N][N];
+			selected = new boolean[N];
 			for (int i = 0; i < M; i++) {
 				st = new StringTokenizer(br.readLine(), " ");
 				int r = Integer.parseInt(st.nextToken());
@@ -32,22 +33,22 @@ public class Solution_2814_최장경로 {
 				map[r - 1][c - 1] = 1;
 				map[c - 1][r - 1] = 1;
 			}
-//			for (int[] m : map) {
-//				System.out.println(Arrays.toString(m));
-//			}
+			for (int[] m : map) {
+				System.out.println(Arrays.toString(m));
+			}
 
 			maxLength = 0;
 			for (int i = 0; i < N; i++) {
-				for (int j = i; j < N; j++) {
-					visit = new boolean[N][N];
-					selected = new boolean[N];
+				for (int j = 0; j < N; j++) {
+//					visit = new boolean[N][N];
+//					selected = new boolean[N];
 					if (map[i][j] == 1) {
-//						System.out.println("i, j 시작 : " + i  + ", " + j);
-						visit[i][j] = true;
+						System.out.println("i, j 시작 : " + i  + ", " + j);
+//						visit[i][j] = true;
 						selected[i] = true;
 //						selected[j] = true;
 						dfs(i, j, 1);
-						visit[i][j] = false;
+//						visit[i][j] = false;
 						selected[i] = false;
 //						selected[j] = false;
 					}
@@ -67,17 +68,18 @@ public class Solution_2814_최장경로 {
 
 		int nr = c;
 		for (int i = 0; i < N; i++) {
-			if (map[nr][i] != 0 && visit[nr][i] == false && selected[i] == false) {
-//				System.out.println("nr, i : " + nr + " " + i);
+//			if (map[nr][i] != 0 && visit[nr][i] == false && selected[i] == false) {
+			if (map[nr][i] != 0 && !selected[i] ) {
+				System.out.println("nr, i : " + nr + " " + i);
 				visit[nr][i] = true;
-				selected[i] = true;
+//				selected[i] = true;
 				dfs(nr, i, length + 1);
 				visit[nr][i] = false;
-				selected[i] = false;
+//				selected[i] = false;
 
 			}
 		}
-//		System.out.println("length : " + length);
+		System.out.println("length : " + length);
 		maxLength = Math.max(maxLength, length);
 
 	}
