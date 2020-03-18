@@ -3,11 +3,7 @@ package swea.d4;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.StringTokenizer;
-
-import javax.print.DocFlavor.STRING;
 
 public class Solution_3378_스타일리쉬들여쓰기 {
 
