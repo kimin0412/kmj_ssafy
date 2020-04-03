@@ -43,13 +43,25 @@ public class Solution_5987_달리기2 {
 		if (memo[flag] > 0) {
 			return memo[flag];
 		}
-		// 순열 
+		// 순열
 		for (int i = 0; i < N; i++) {
-			// 순열 
+			// 순열
 			if ((flag & 1 << i) == 0) {
-				// 
+				//
+				System.out.println("flag : " + flag);
+				System.out.println("flag : " + Integer.toBinaryString(flag));
+				System.out.println((flag & needs[i]) + " " + needs[i]);
+				System.out.println(Integer.toBinaryString(flag & needs[i]) + " " + Integer.toBinaryString(needs[i]));
+				
+				if ((flag ) == needs[i]) {
+					System.out.println("!" + Integer.toBinaryString(flag) + " " + Integer.toBinaryString(needs[i]));
+				}
 				if ((flag & needs[i]) == needs[i]) {
-					// 순열 
+//				if ((flag ) == needs[i]) {
+					System.out.println((flag & needs[i]) + " " + needs[i]);
+					System.out.println(Integer.toBinaryString(flag & needs[i]) + " " + Integer.toBinaryString(needs[i]));
+					System.out.println();
+					// 순열
 					memo[flag] += dfs(flag | 1 << i);
 				}
 			}
