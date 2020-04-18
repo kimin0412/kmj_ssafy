@@ -1,4 +1,4 @@
-package swea.sw;
+package swea.swtest;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -7,14 +7,14 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Solution_5656_모의SW_벽돌깨기 {
+public class Solution_5656_모의SW_벽돌깨기2 {
 	static int N;
 	static int W; // 열 개수 (가로길이)
 	static int H; // 행 개수 (세로길이)
-	static int maxcnt = 0;
+	static int mincnt = Integer.MAX_VALUE;
 	static int[][] map;
 	static int[][] tmpM;
-	static int[] cntArr;
+	static int[] tmpPos;
 	static int[][] dir = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
 
 	public static void main(String[] args) throws Exception {
@@ -30,7 +30,6 @@ public class Solution_5656_모의SW_벽돌깨기 {
 			H = Integer.parseInt(st.nextToken().trim()); // 경사로 길이
 			map = new int[H][W]; // 맵
 			tmpM = new int[H][W]; // 맵
-			cntArr = new int[W]; // 맵
 
 			for (int i = 0; i < H; i++) {
 				st = new StringTokenizer(br.readLine(), " ");
@@ -39,34 +38,26 @@ public class Solution_5656_모의SW_벽돌깨기 {
 				}
 			} // 맵 입력 받기
 
-			
-			for (int c = 0; c < H; c++) {
-//				bfs(c, 0);
-			}
-				
-//				for (int cc = 0; cc < N; cc++) {
-//					for (int ccc = 0; ccc < N; ccc++) {	
-//						for (int i = 0; i < W; i++) {
-//							mapInit(map);
-//							for (int j = 0; j < H; j++) {
-//								if (tmpM[j][i] != 0) {
-////						System.out.println("!!");
-////						bfs(j, i);
-//									System.out.println(counting());
-//
-//									break;
-//								}
-//							}
-//						}
-//					}
-//				}
-//			}
+			mincnt = Integer.MAX_VALUE;
+			tmpPos = new int[N];
+			pickPos(0);
 
-			System.out.println("#" + tc + " ");
+			System.out.println("#" + tc + " " + mincnt);
 		}
 	}
 
-	private static void mapInit(int[][] tmpM, int[][] mm) {
+	private static void pickPos(int cnt) {
+		if (cnt == N) {
+			bfs(tmpPos, tmpM);
+			return;
+		}
+		for (int i = 0; i < W; i++) {
+			tmpPos[cnt] = i;
+			pickPos(cnt + 1);
+		}
+	}
+
+	private static void mapInit(int[][] mm) {
 		for (int i = 0; i < H; i++) {
 			for (int j = 0; j < W; j++) {
 				tmpM[i][j] = mm[i][j];
@@ -94,34 +85,23 @@ public class Solution_5656_모의SW_벽돌깨기 {
 		return cnt;
 	}
 
-	private static void bfs(int[][] tmpM, int no, int CNT) {
-		if(CNT == N) {
-			if(counting(tmpM) > maxcnt) {
-				maxcnt = counting(tmpM);
-            }
-			return;
-		}
-		
+	private static void bfs(int[] tmpPos, int[][] tmpM) {
 		LinkedList<int[]> q = new LinkedList<>();
-		int[] tmp;
-		
-		
-		
+		mapInit(map);
+
 		for (int n = 0; n < N; n++) {
 			q = new LinkedList<>();
-			int nextR = check(no, tmpM);
+			int nextR = check(tmpPos[n], tmpM);
 			if (nextR != -1) {
-				q.add(new int[] { nextR, no });
-				tmpM[nextR][no] = 0;
-
+				q.add(new int[] { nextR, tmpPos[n], tmpM[nextR][tmpPos[n]] });
 				while (!q.isEmpty()) {
-					tmp = q.poll();
-					for (int i = 1; i < map[tmp[0]][tmp[1]]; i++) {
+					int[] tmp = q.poll();
+					for (int i = 0; i < tmp[2]; i++) {
 						for (int d = 0; d < 4; d++) {
 							int nr = tmp[0] + dir[d][0] * i;
 							int nc = tmp[1] + dir[d][1] * i;
 							if (nr > -1 && nr < H && nc > -1 && nc < W && tmpM[nr][nc] != 0) {
-								q.add(new int[] { nr, nc });
+								q.add(new int[] { nr, nc, tmpM[nr][nc] });
 								tmpM[nr][nc] = 0;
 							}
 						}
@@ -140,18 +120,12 @@ public class Solution_5656_모의SW_벽돌깨기 {
 					}
 				}
 			}
-//			mapInit(move);
-//			
-//			for(int i = 0; i < H; i++) {
-//	            bfs(i, CNT+1);
-//	        }
-//			
-//			System.out.println("no : " + (no + 1));
-//			for (int[] m : tmpM) {
-//				System.out.println(Arrays.toString(m));
-//			}
-//			System.out.println();
+			mapInit(move);
 		}
+		if (counting(tmpM) < mincnt) {
+			mincnt = counting(tmpM);
+		}
+
 	}
 
 }

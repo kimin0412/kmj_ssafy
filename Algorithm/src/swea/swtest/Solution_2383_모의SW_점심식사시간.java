@@ -1,4 +1,4 @@
-package swea.sw;
+package swea.swtest;
 ///////보류////////
 import java.io.BufferedReader;
 import java.io.FileInputStream;
