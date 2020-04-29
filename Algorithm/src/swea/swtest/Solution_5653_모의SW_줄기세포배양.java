@@ -1,4 +1,4 @@
-package swea.swtest;
+//package swea.swtest;
 //package swea.sw;
 //
 //import java.io.BufferedReader;
