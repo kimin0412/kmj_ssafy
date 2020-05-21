@@ -1,6 +1,5 @@
 package swea.swtest;
 
-//// 보류 ////
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
@@ -8,7 +7,30 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Solution_5644_모의SW_무선충전 {
+public class Solution_5644_모의SW_무선충전2 {
+	static class BC{
+		int x;	// x좌표 
+		int y;	// y좌표
+		int c;	// coverage
+		int p;	// performance
+		int idx;	// BC의 index
+		
+		public BC(int x, int y, int c, int p, int idx) {
+			super();
+			this.x = x;
+			this.y = y;
+			this.c = c;
+			this.p = p;
+			this.idx = idx;
+		}
+		
+		@Override
+		public String toString() {
+			return "BC [x=" + x + ", y=" + y + ", c=" + c + ", p=" + p + ", idx=" + idx + "]";
+		}
+	}
+	
+	static int max;	// 최대 충전량 
 	static int ans;
 	static int chargeA;
 	static int chargeB;

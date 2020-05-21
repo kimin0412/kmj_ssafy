@@ -21,21 +21,21 @@ public class Solution_4014_모의SW_활주로건설 {
 			st = new StringTokenizer(br.readLine(), " ");
 			N = Integer.parseInt(st.nextToken()); // 지도 한변크기 
 			X = Integer.parseInt(st.nextToken()); // 경사로 길이 
-			map = new int[N][N]; // 맵
-			int[][] maxX = new int[2][N]; // 각행/마다 최대값 저장해두는 배열
+			map = new int[N+2][N+2]; // 맵
+			int[][] maxX = new int[2][N+1]; // 각행/마다 최대값 저장해두는 배열
 			int[][] idxArr = new int[N][2];
 			
-			for (int r = 0; r < N; r++) {
+			for (int r = 1; r <= N; r++) {
 				st = new StringTokenizer(br.readLine(), " ");
-				for (int c = 0; c < N; c++) {
+				for (int c = 1; c <= N; c++) {
 					map[r][c] = Integer.parseInt(st.nextToken());
 				}
 			} //맵 입력 받기
 			
-			for (int i = 0; i < N; i++) {
+			for (int i = 1; i <= N; i++) {
 				int maxcntR = 0;
 				int maxcntC = 0;
-				for (int j = 0; j < N; j++) {
+				for (int j = 1; j <= N; j++) {
 					maxcntR = Math.max(maxcntR, map[i][j]);
 					maxcntC = Math.max(maxcntC, map[j][i]);
 				}
